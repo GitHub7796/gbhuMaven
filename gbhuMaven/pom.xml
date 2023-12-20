@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.gbhu</groupId>
+  <artifactId>gbhuMaven</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>gbhuMaven</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+<!--    自定义插件-->
+    <plugins>
+      <!-- 绑定插件 maven-antrun-plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
+        <executions>
+          <execution>
+            <!--自定义 id -->
+            <id>com.gbhu clean</id>
+            <!--插件目标绑定的构建阶段 -->
+            <phase>clean</phase>
+            <!--插件目标 -->
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <!--配置 -->
+            <configuration>
+              <!-- 执行的任务 -->
+              <tasks>
+                <!--自定义文本信息 -->
+                <echo>清理阶段，gbhu 欢迎您的到来</echo>
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
